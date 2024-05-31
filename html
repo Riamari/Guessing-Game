@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Guessing Army</title>
+	<style type="text/css">
+	#container
+	{
+		background-color:lightgray;
+		width:30%;
+		padding:10px
+	}
+</style>
+</head>
+<body>
+<div id="container">
+ 	<label>Enter an integer number between 1 to 100:</label><br/>
+	<input type= "text" id= "txtNum" value="0"/> <br/><br/>
+
+	<input type="button" value="Play" onclick="play()"/>
+	<input type="button" value="Reset" onclick="reset()"/> <br><br/>
+	
+
+	<span id="spnResult"></span>
+</div>
+
+	<script type="text/javascript">
+	
+	function play()
+	{
+		
+		var uNum = parseInt(document.getElementById("txtNum").value);
+		var rNum = parseInt(Math.random() * 100 +1); // 1 to 100;
+		var maxTries = 3;
+		var numGuesses = 0;
+		
+		if(uNum == rNum)
+		{
+			document.getElementById("spnResult").innerHTML = "Congrats! you won.";
+		} 
+		
+		if(uNum > rNum)
+		{
+			document.getElementById("spnResult").innerHTML = " too high  "+ rNum;
+		}
+		else
+		{
+			document.getElementById("spnResult").innerHTML = " too low  "+ rNum;
+		}
+
+
+	}
+	
+	function reset()
+	{
+		document.getElementById("txtNum").value="0";
+		document.getElementById("spnResult").innerHTML="";
+	}
+
+	function checkGuess() 
+	{
+			if (numGuesses >= maxTries) {
+		document.getElementById("result").textContext = " to many tries"; 
+	}
+	}
+
+	
+
+</script>
+
+</body>
+</html>
